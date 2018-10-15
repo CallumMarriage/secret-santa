@@ -19,17 +19,30 @@ public class Main {
        names.add("Caner");
        names.add("Daniel");
        names.add("Andrew");
-        System.out.println(pickName(names, 2));
+       System.out.println(pickName(names, 2));
+       List<String> games = shuffleFile("./videoGames.txt");
 
+       if(games != null){
+           for(String game : games){
+               System.out.println(game);
+           }
+       } else {
+           System.out.println("ERROR! Game file does not exist or has a format problem!");
+       }
 
-        List<String> games = shuffleFile("./videoGames.txt");
-
-        for(String game : games){
-            System.out.println(game);
-        }
     }
 
     private static String pickName(List<String> names, Integer numberOfNames){
+        String title = ">> Picking ";
+        if(numberOfNames == 1){
+            title += " a ";
+        }
+        title += numberOfNames + " name";
+        if(numberOfNames > 1){
+            title += "s";
+        }
+        System.out.println(title + "\n");
+
         Integer random;
         StringBuilder returnedNames = new StringBuilder();
         for(int i = 1; i <= numberOfNames; i++) {
@@ -44,6 +57,7 @@ public class Main {
     }
 
     private static List<String> shuffleFile(String pathToFile){
+        System.out.println("\n>> Shuffling games \n");
         List<String> unorganisedGames;
         try {
             unorganisedGames = Arrays.asList(FileUtils.readFileToString(new File(pathToFile)).split("\n"));
