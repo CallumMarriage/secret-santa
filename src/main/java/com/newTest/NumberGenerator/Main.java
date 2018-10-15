@@ -19,8 +19,7 @@ public class Main {
        names.add("Caner");
        names.add("Daniel");
        names.add("Andrew");
-        //System.out.println(pickName(args[0].split(" "), Integer.parseInt(args[1])));
-        //System.out.println(pickName(names, 2));
+        System.out.println(pickName(names, 2));
 
 
         List<String> games = shuffleFile("./videoGames.txt");
