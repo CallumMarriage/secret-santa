@@ -23,8 +23,12 @@ public class Main {
        List<String> games = shuffleFile("./videoGames.txt");
 
        if(games != null){
-           for(String game : games){
-               System.out.println(game);
+           for(int i =0; i < games.size(); i++){
+               if(i % 2 == 0 ){
+                   System.out.println("|----------| round 1 |----------|");
+               }
+               System.out.println(games.get(i));
+
            }
        } else {
            System.out.println("ERROR! Game file does not exist or has a format problem!");
@@ -57,7 +61,7 @@ public class Main {
     }
 
     private static List<String> shuffleFile(String pathToFile){
-        System.out.println("\n>> Shuffling games \n");
+        System.out.println("\n>> Shuffling Shows \n");
         List<String> unorganisedGames;
         try {
             unorganisedGames = Arrays.asList(FileUtils.readFileToString(new File(pathToFile)).split("\n"));
