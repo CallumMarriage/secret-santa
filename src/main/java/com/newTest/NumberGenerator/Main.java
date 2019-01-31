@@ -9,6 +9,8 @@ import java.util.*;
 
 public class Main {
 
+
+
     public static void main(String[] args) {
 	// write your code here
 
@@ -20,14 +22,14 @@ public class Main {
        names.add("Daniel");
        names.add("Andrew");
        System.out.println(pickName(names, 2));
-       List<String> games = shuffleFile("./videoGames.txt");
+       List<String> items = shuffleFile("performances.txt");
 
-       if(games != null){
-           for(int i =0; i < games.size(); i++){
+       if(items != null){
+           for(int i =0; i < items.size(); i++){
                if(i % 2 == 0 ){
                    System.out.println("|----------| round 1 |----------|");
                }
-               System.out.println(games.get(i));
+               System.out.println(items.get(i));
 
            }
        } else {
@@ -60,8 +62,9 @@ public class Main {
         return returnedNames.toString();
     }
 
-    private static List<String> shuffleFile(String pathToFile){
-        System.out.println("\n>> Shuffling Shows \n");
+    private static List<String> shuffleFile(String fileName){
+        System.out.println("\n>> Shuffling " + fileName.split("\\.")[0] + "\n");
+        System.out.println();
         List<String> unorganisedGames;
         try {
             unorganisedGames = Arrays.asList(FileUtils.readFileToString(new File(pathToFile)).split("\n"));
